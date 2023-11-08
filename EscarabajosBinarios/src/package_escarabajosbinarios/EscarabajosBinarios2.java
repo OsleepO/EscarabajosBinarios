@@ -73,181 +73,121 @@ public class EscarabajosBinarios2 {
 
 	public static void rellenarDatos(ArrayList<String[]> equipos, ArrayList<double[]> tiempos, Scanner sc) {
 		
-		equipos.add(new String[] { "Gustavo Runners", "Marta Diaz", "Peter" });
-        tiempos.add(new double[] { 5.50, 4.30, 4.50, 6.30 });
-
-        equipos.add(new String[] { "Luisa Speedsters", "Carlos Perez", "Anna" });
-        tiempos.add(new double[] { 6.20, 5.10, 4.90, 7.00 });
-
-        equipos.add(new String[] { "Juan Sprinters", "Elena Rodriguez", "Carlos" });
-        tiempos.add(new double[] { 5.80, 4.70, 4.60, 6.50 });
-
-        equipos.add(new String[] { "Laura Racers", "David Gomez", "Emma" });
-        tiempos.add(new double[] { 5.90, 4.60, 4.70, 6.70 });
-
-        equipos.add(new String[] { "Roberto Blazers", "Sara Gonzalez", "Michael" });
-        tiempos.add(new double[] { 5.70, 4.40, 4.80, 6.90 });
-
-        equipos.add(new String[] { "Diego Sprinters", "Olivia Smith", "Lucas" });
-        tiempos.add(new double[] { 6.00, 4.50, 4.60, 6.80 });
-
-        equipos.add(new String[] { "Maria Rushers", "Juan Martinez", "Sophia" });
-        tiempos.add(new double[] { 5.60, 4.80, 4.90, 6.60 });
-
-        // Equipo con bici electrica
-        equipos.add(new String[] { "Daniel Racers", "Paula Ruiz", "Liam" });
-        tiempos.add(new double[] { 5.50, 4.90, 4.60, 6.40, 2.00, 4.50, 4.60, 6.80 });
-
-        equipos.add(new String[] { "Natalia Blazers", "Hector Sanchez", "Isabella" });
-        tiempos.add(new double[] { 5.80, 1.10, 1.30, 6.30 });
-
-        // Equipo con bici electrica
-        equipos.add(new String[] { "Pablo Speedsters", "Eva Hernandez", "Noah" });
-        tiempos.add(new double[] { 4.10, 5.00, 4.00, 6.20, 3.50, 1.30, 1.50, 1.0 });
+//		equipos.add(new String[] { "Gustavo Runners", "Marta Diaz", "Peter" });
+//        tiempos.add(new double[] { 5.50, 4.30, 4.50, 6.30 });
+//
+//        equipos.add(new String[] { "Luisa Speedsters", "Carlos Perez", "Anna" });
+//        tiempos.add(new double[] { 6.20, 5.10, 4.90, 7.00 });
+//
+//        equipos.add(new String[] { "Juan Sprinters", "Elena Rodriguez", "Carlos" });
+//        tiempos.add(new double[] { 5.80, 4.70, 4.60, 6.50 });
+//
+//        equipos.add(new String[] { "Laura Racers", "David Gomez", "Emma" });
+//        tiempos.add(new double[] { 5.90, 4.60, 4.70, 6.70 });
+//
+//        equipos.add(new String[] { "Roberto Blazers", "Sara Gonzalez", "Michael" });
+//        tiempos.add(new double[] { 5.70, 4.40, 4.80, 6.90 });
+//
+//        equipos.add(new String[] { "Diego Sprinters", "Olivia Smith", "Lucas" });
+//        tiempos.add(new double[] { 6.00, 4.50, 4.60, 6.80 });
+//
+//        equipos.add(new String[] { "Maria Rushers", "Juan Martinez", "Sophia" });
+//        tiempos.add(new double[] { 5.60, 4.80, 4.90, 6.60 });
+//
+//        // Equipo con bici electrica
+//        equipos.add(new String[] { "Daniel Racers", "Paula Ruiz", "Liam" });
+//        tiempos.add(new double[] { 5.50, 4.90, 4.60, 6.40, 2.00, 4.50, 4.60, 6.80 });
+//
+//        equipos.add(new String[] { "Natalia Blazers", "Hector Sanchez", "Isabella" });
+//        tiempos.add(new double[] { 5.80, 1.10, 1.30, 6.30 });
+//
+//        // Equipo con bici electrica
+//        equipos.add(new String[] { "Pablo Speedsters", "Eva Hernandez", "Noah" });
+//        tiempos.add(new double[] { 4.10, 5.00, 4.00, 6.20, 3.50, 1.30, 1.50, 1.0 });
         
-//		Boolean comprobar = true; // Creamos una variable para control de errores
-//
-//		int numeroEquipos = 0; // Creamos una variable para saber el numero de equipos por teclado
-//
-//		// creamos un while para volver a preguntar que en caso de que el usuario
-//		// introduce un valor incorrecto
-//
-//		while (comprobar) {
-//
-//			System.out.println("Introduce numero de equipos: ");
-//
-//			if (sc.hasNextInt()) {
-//
-//				numeroEquipos = sc.nextInt();
-//
-//				// un if para que la entrada de numero tiene que ser al menos 1
-//
-//				if (numeroEquipos > 0) {
-//
-//					comprobar = false;
-//
-//				} else {
-//
-//					System.out.println("Cantidad de equipos hay que tener al menos 1");
-//
-//				}
-//
-//			} else {
-//
-//				System.out.println("El valor introducido no es correcto. Intentalo de nuevo");
-//
-//				sc.next();
-//
-//			}
-//
-//		}
-//
-//		sc.nextLine();
-//
-//		// creamos un for para que haya un bucle y podamos poner el nombre de los
-//		// equipos
-//
-//		for (int i = 0; i < numeroEquipos; i++) {
-//
-//			String[] equipo = new String[3]; // creamos un array para guardar el nombre del equipo y los dos
-//												// participantes
-//
-//			double[] tiempoEquipos = new double[4]; // creamos un array para guardar los 4 tiempos del equipo
-//
-//			double[] corredorTiempoElectrico = new double[8]; // creamos un array para guardar los 4 tiempos del equipo
-//
-//			System.out.println("Introduce el nombre del equipo " + (i + 1) + ":");
-//
-//			equipo[0] = sc.nextLine();
-//
-//			String bici = "";
-//
-//			System.out.println("¿Tu bici es electrica? S/N: ");
-//
-//			bici = sc.nextLine();
-//
-//			if (bici.toLowerCase().equals("si") || bici.toLowerCase().equals("s")) {
-//
-//				int index = 0;
-//
-//				for (int j = 0; j < 2; j++) {
-//
-//					System.out.println("Introduce el nombre del corredor " + (j + 1) + " del equipo " + (i + 1) + ":");
-//
-//					equipo[j + 1] = sc.nextLine();
-//
-//					for (int p = 0; p < 4; p++) {
-//
-//						System.out.println("Introduce el tiempo de la etapa " + (p + 1) + " del corredor " + (j + 1));
-//
-//						corredorTiempoElectrico[index] = sc.nextDouble();
-//
-//						index++;
-//
-//					}
-//
-//					sc.nextLine();
-//
-//				}
-//
-//				equipos.add(equipo); // guardamos en el ArrayList los equipos del array equipo
-//
-//				tiempos.add(corredorTiempoElectrico);
-//
-//			} else if (bici.toLowerCase().equals("no") || bici.toLowerCase().equals("n")) {
-//
-//				// creamos un for para hacer un bucle para poner los dos corredores de los
-//				// equipos
-//
-//				for (int f = 1; f <= 2; f++) {
-//
-//					System.out.println("Introduce el nombre del participante " + f + " del equipo " + (i + 1) + ":");
-//
-//					equipo[f] = sc.nextLine();
-//
-//				}
-//
-//				equipos.add(equipo); // guardamos en el ArrayList los equipos del array equipo
-//
-//				for (int j = 0; j < tiempoEquipos.length; j++) {
-//
-//					comprobar = true; // volver a utilizar el variable para control de errores
-//
-//					// creamos un while para que de un texto de error si no es un numero y volver a
-//					// preguntarlo
-//
-//					while (comprobar) {
-//
-//						System.out.println("Tiempo de etapa " + (j + 1) + " del equipo " + (i + 1) + ":");
-//
-//						if (sc.hasNextDouble()) {
-//
-//							tiempoEquipos[j] = sc.nextDouble();
-//
-//							comprobar = false;
-//
-//							sc.nextLine();
-//
-//						} else {
-//
-//							System.out.println("El valor introducido no es correcto. Intentalo de nuevo");
-//
-//							sc.next();
-//
-//						}
-//
-//					}
-//
-//				}
-//
-//				tiempos.add(tiempoEquipos); // guardamos en el ArrayList los tiempos del array tiempoequipos
-//
-//			} else {
-//
-//			}
-//
-//		}
-//
+		Boolean comprobar = true; // Creamos una variable para control de errores
+		int numeroEquipos = 0; // Creamos una variable para saber el numero de equipos por teclado
+
+		// creamos un while para volver a preguntar que en caso de que el usuario
+		// introduce un valor incorrecto
+		while (comprobar) {
+			System.out.println("Introduce numero de equipos: ");
+			if (sc.hasNextInt()) {
+				numeroEquipos = sc.nextInt();
+
+				// un if para que la entrada de numero tiene que ser al menos 1
+				if (numeroEquipos > 0) {
+					comprobar = false;
+				} else {
+					System.out.println("Cantidad de equipos hay que tener al menos 1");
+				}
+			} else {
+				System.out.println("El valor introducido no es correcto. Intentalo de nuevo");
+				sc.next();
+			}
+		}
+		sc.nextLine();
+
+		// creamos un for para que haya un bucle y podamos poner el nombre de los
+		// equipos
+		for (int i = 0; i < numeroEquipos; i++) {
+
+			String[] equipo = new String[3]; // creamos un array para guardar el nombre del equipo y los dos participantes
+			double[] tiempoEquipos = new double[4]; // creamos un array para guardar los 4 tiempos del equipo
+			double[] corredorTiempoElectrico = new double[8]; // creamos un array para guardar los 4 tiempos del equipo
+			System.out.println("Introduce el nombre del equipo " + (i + 1) + ":");
+			equipo[0] = sc.nextLine();
+			String bici = "";
+			System.out.println("¿Tu bici es electrica? S/N: ");
+			bici = sc.nextLine();
+
+			if (bici.toLowerCase().equals("si") || bici.toLowerCase().equals("s")) {
+				int index = 0;
+				for (int j = 0; j < 2; j++) {
+					System.out.println("Introduce el nombre del corredor " + (j + 1) + " del equipo " + (i + 1) + ":");
+					equipo[j + 1] = sc.nextLine();
+
+					for (int p = 0; p < 4; p++) {
+						System.out.println("Introduce el tiempo de la etapa " + (p + 1) + " del corredor " + (j + 1));
+						corredorTiempoElectrico[index] = sc.nextDouble();
+						index++;
+					}
+					sc.nextLine();
+				}
+				equipos.add(equipo); // guardamos en el ArrayList los equipos del array equipo
+				tiempos.add(corredorTiempoElectrico);
+			} else if (bici.toLowerCase().equals("no") || bici.toLowerCase().equals("n")) {
+
+				// creamos un for para hacer un bucle para poner los dos corredores de los
+				// equipos
+				for (int f = 1; f <= 2; f++) {
+					System.out.println("Introduce el nombre del participante " + f + " del equipo " + (i + 1) + ":");
+					equipo[f] = sc.nextLine();
+				}
+				equipos.add(equipo); // guardamos en el ArrayList los equipos del array equipo
+
+				for (int j = 0; j < tiempoEquipos.length; j++) {
+					comprobar = true; // volver a utilizar el variable para control de errores
+
+					// creamos un while para que de un texto de error si no es un numero y volver a
+					// preguntarlo
+					while (comprobar) {
+						System.out.println("Tiempo de etapa " + (j + 1) + " del equipo " + (i + 1) + ":");
+						if (sc.hasNextDouble()) {
+							tiempoEquipos[j] = sc.nextDouble();
+							comprobar = false;
+							sc.nextLine();
+						} else {
+							System.out.println("El valor introducido no es correcto. Intentalo de nuevo");
+							sc.next();
+						}
+					}
+				}
+				tiempos.add(tiempoEquipos); // guardamos en el ArrayList los tiempos del array tiempoequipos
+			} else {
+
+			}
+		}
 	}
 
 	// metodo para hacer la media de los equipos
