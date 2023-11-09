@@ -128,8 +128,7 @@ public class EscarabajosBinarios2 {
 		}
 		sc.nextLine();
 
-		// creamos un for para que haya un bucle y podamos poner el nombre de los
-		// equipos
+		// creamos un for para que haya un bucle y podamos poner el nombre de los equipos
 		for (int i = 0; i < numeroEquipos; i++) {
 
 			String[] equipo = new String[3]; // creamos un array para guardar el nombre del equipo y los dos participantes
@@ -191,112 +190,77 @@ public class EscarabajosBinarios2 {
 	}
 
 	// metodo para hacer la media de los equipos
-
 	public static double[] calcularMediaTiempo(ArrayList<double[]> tiempos) {
-
 		int index = 0; // creamos una variable para llevar un seguimiento del indice actual
-
 		double[] mediaEquipo = new double[tiempos.size()]; // creamos un array para almacenar la media de los equipos
 
 		// usamos un forEach para que recorra toda la variable tiempos
-
 		for (double[] i : tiempos) {
-
 			double media = 0; // variable para guardar la suma de los valores
 
 			// forEach para recorrer todo los tiempos de cada i
-
 			for (double f : i) {
-
 				media += f; // se suma los valores y se acumula la suma en media
-
 			}
-
 			mediaEquipo[index] = media / i.length; // se calcula la media
-
 			index++;
-
 		}
-
 		return mediaEquipo; // devuelve las medias de cada equipo
-
 	}
 
 	// creamos un metodo array int para que guarde las posiciones del metodo
 	// CalcularMediaTiempo ordenadas
-
 	public static int[] calcularClasificacion(ArrayList<String[]> equipos, ArrayList<double[]> tiempos) {
 
 		// creamos la variable
-
 		double[] mediaEquipos = calcularMediaTiempo(tiempos);
 
 		// creamos la variable ordenada y lo ordenamos
-
 		double[] mediaOrdenadas = calcularMediaTiempo(tiempos);
-
 		Arrays.sort(mediaOrdenadas);
 
 		// creamos un int[] para guardar la posicion del equipo
-
 		int[] clasificacion = new int[mediaOrdenadas.length];
 
 		// creamos un for para que recorra mediaordenadas
-
 		for (int i = 0; i < mediaOrdenadas.length; i++) {
 
 			// creamos un for para que compare el valor de mediaordenadas con mediaequipos
 			// si el valor es igual guarda la posicion
-
 			for (int j = 0; j < mediaEquipos.length; j++) {
 
 				// comparar la posicion del array ordenado con la posicion del array sin ordenar
 				// para poder sacarlo
-
 				if (mediaOrdenadas[i] == mediaEquipos[j]) {
-
 					clasificacion[i] = j;
-
 				}
 
 			}
 
 		}
-
 		return clasificacion; // devuelve un int[] que contiene las posiciones de cada equipo
-
 	}
 
 	// metodo para calcular la velocidad en km/h
-
 	public static double velocidadKmh(double km, double h) {
-
 		return km / h;
-
 	}
 
 	// Este metodo lo que hace es calcular la velocidad media de cada equipo
-
 	public static double[] velocidadMediaEquipos(ArrayList<double[]> tiempos, double[] etapas) {
-
 		double[] velocidadE = new double[tiempos.size()];
-
 		int index = 0;
 
 		// Este double es para que se sumen todas las etapas con Arrays.stream().sum() y
 		// las ponga en una variable que la hemos llamado sumaEtapas
-
 		double sumaEtapas = Arrays.stream(etapas).sum();
 
 		// Este forEach es para recorrer todo el ArrayList y poder calcular la velocidad
 		// media de cada uno de los equipos
-
 		for (double[] tiempoEquipos : tiempos) {
-
 			int numeroEtapas = tiempoEquipos.length / etapas.length;
 
 			// velocidadE guardamos dentro del array es la velocidad media de cada equipo,
-
 			/*
 			 * Lo igualamos a la funcion Math. round() que retorna el valor de un numero
 			 * redondeado
@@ -310,52 +274,59 @@ public class EscarabajosBinarios2 {
 			 * para obtener la velocidad media del equipo.
 			 * 
 			 */
-
 			velocidadE[index] = Math.round(
 					(velocidadKmh((sumaEtapas * numeroEtapas), Arrays.stream(tiempoEquipos).sum())) * 100.0) / 100.0;
-
 			index++;
-
 		}
-
 		// Aqui devolvemos el valor de velocidadE
-
 		return velocidadE;
-
 	}
 
-	// Metodo para almacenar en un array los corredores mas rapidos de cada etapa
-
+	// Metodo para saber el corredor mas rapido de cada etapa
 	public static ArrayList<double[]> calcularCorredorMasRapidoEtapa(double[] etapas, ArrayList<double[]> tiempos) {
+		//ArrayList donde estan guardados los corredores mas rapido de cada etapa
 		ArrayList<double[]> corredoresRapidos = new ArrayList<>();
 		
 		
 		for(int i = 0; i < etapas.length; i++) {
-			double indexEquipo = 0;
-			double indexCorredor = 0;
+			/*
+			 * Datos guardado son los siguientes:
+			 * Posicion 0 : indexEquipo
+			 * Posicion 1 : indexCorredor
+			 * Posicion 2 : tiempo
+			 */
 			double[] corredorRapido = new double[3];
-			double tiempoRapido = Double.MAX_VALUE;
+			double tiempoRapido = Double.MAX_VALUE;	// dar un valor para empezar
+			
+			//for que recorre todo el ArrayList para comparar
 			for(int j = 0; j < tiempos.size(); j++) {
+				
+				//Una condicion para ver si el tiempo es del bicicletas de montaña
 				boolean condicion = tiempos.get(j).length == etapas.length ? true : false;
+				
+				//depende de la condicion comprueba de una manera u otra
 				if(condicion) {
+					
+					//si tiempo actual es menor que tiempoRapido lo guarda
 					if(tiempos.get(j)[i] < tiempoRapido) {
 						tiempoRapido = tiempos.get(j)[i];
-						indexEquipo = j;
-						indexCorredor = ((i % 2) + 1);
+						corredorRapido[0] = j;	//guardar indexEquipo
+						corredorRapido[1] = ((i % 2) + 1); //guarda indexCorredor
 					}
 				} else {
+					//miramos el que tenga el menor tiempo es el primer o segundo corredor del equipo con bicicletas electricas
 					int posicionTiempoElectrico = tiempos.get(j)[i] < tiempos.get(j)[i + etapas.length] ? i : i + 4;
+					
+					//si tiempo actual es menor que tiempoRapido lo guarda
 					if(tiempos.get(j)[posicionTiempoElectrico] < tiempoRapido) {
 						tiempoRapido = tiempos.get(j)[posicionTiempoElectrico];
-						indexEquipo = j;
-						indexCorredor = posicionTiempoElectrico < etapas.length ? 1 : 2;
+						corredorRapido[0] = j;	//guardar indexEquipo
+						corredorRapido[1] = posicionTiempoElectrico < etapas.length ? 1 : 2; //guarda indexCorredor
 					}
 				}
 			}
-			corredorRapido[0] = indexEquipo;
-			corredorRapido[1] = indexCorredor;
-			corredorRapido[2] = tiempoRapido;
-			corredoresRapidos.add(corredorRapido);
+			corredorRapido[2] = tiempoRapido;	//guardar el tiempoRapido
+			corredoresRapidos.add(corredorRapido);	//guardar los datos anteriores
 		}
 		return corredoresRapidos;
 	}
